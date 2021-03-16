@@ -77,7 +77,27 @@ def search_msg(name_image) :
     postcondition:
         type msg = str
     """
-    pass
+    image = Image.open(name_image)
+    #on récupère les dimensions
+    w,h = image.size
+    indice = 1
+    image2 = Image.new("RGB",(w,h))
+    long_secret = ""
+    for y in range(h):
+        for x in range(w):
+            p = image.getpixel((x,y))
+            r = p[0] # composante rouge comprise entre 0 et 255
+            v = p[1] #composante verte comprise entre 0 et 255
+            b = p[2] #composante bleue comprise entre 0 et 255
+            if x == 0 and y == 0 :
+                long_secret = r
+            else :
+                if indice <= len(long_secret): 
+                    print(r)
+                    r=bin(r).lstrip('-0b').zfill(8)
+                    print(r)
+                    rouge=r[:4]
+                    #utiliser le fonction dechiffre du XOR
 
 #tests
 stegano('saucisse.jpg','s')
