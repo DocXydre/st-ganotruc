@@ -1,5 +1,5 @@
 ####mini projet Stéganographie###
-### nom de l'élève ###
+### Charline, Paul, Thomas  ###
 
 from PIL import Image
 
