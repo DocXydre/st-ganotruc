@@ -71,6 +71,12 @@ def stegano(name_image, msg) :
     image2.show()
  #on ouvre l'image !
 def search_msg(name_image) :
+    """recherche le messge caché dans l'image
+    précondition:
+        type name_image = str
+    postcondition:
+        type msg = str
+    """
     pass
 
 #tests
