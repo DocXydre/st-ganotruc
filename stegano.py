@@ -113,11 +113,7 @@ def search_msg(name_image) :
                 long_secret = r
             else :
                 if indice <= len(long_secret): 
-                    print(r)
-                    r=bin(r).lstrip('-0b').zfill(8)
-                    print(r)
                     rouge=r[:4]
-
                     #utiliser le fonction dechiffre du XOR
 
 #tests
