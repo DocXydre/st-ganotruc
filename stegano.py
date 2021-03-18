@@ -111,7 +111,7 @@ def search_msg(name_image) :
                 long_secret = r
                 print(long_secret)
             else :
-                if indice <= long_secret :
+                if indice < long_secret*2 :
                     r=bin(r).lstrip('-0b').zfill(8) 
                     rouge=r[4:]
                     print(rouge)
@@ -124,6 +124,6 @@ def search_msg(name_image) :
 
 
 #tests
-#stegano('saucisse.png','s')
+#stegano('saucisse.png','saucisse')
 print(search_msg('imageStega.png'))
 
