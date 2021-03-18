@@ -111,14 +111,19 @@ def search_msg(name_image) :
                 long_secret = r
                 print(long_secret)
             else :
-                if indice <= long_secret: 
-                    rouge=r[:4]
+                if indice <= long_secret + 1 :
+                    r=bin(r).lstrip('-0b').zfill(8) 
+                    rouge=r[4:]
+                    print(rouge)
                     message_secret += rouge
+                    indice+=1
+    print(message_secret)
                     
     return dechiffre(message_secret)
 
 
 
 #tests
-stegano('saucisse.png','s')
-search_msg('imageStega.png')
+#stegano('saucisse.png','s')
+print(search_msg('imageStega.png'))
+
