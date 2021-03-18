@@ -103,6 +103,7 @@ def search_msg(name_image) :
     indice = 1
     image2 = Image.new("RGB",(w,h))
     long_secret = ""
+    message_secret = ""
     for y in range(h):
         for x in range(w):
             p = image.getpixel((x,y))
@@ -114,7 +115,11 @@ def search_msg(name_image) :
             else :
                 if indice <= len(long_secret): 
                     rouge=r[:4]
-                    #utiliser le fonction dechiffre du XOR
+                    message_secret += rouge
+                    
+    return dechiffre(message_secret)
+
+
 
 #tests
 stegano('saucisse.jpg','s')
