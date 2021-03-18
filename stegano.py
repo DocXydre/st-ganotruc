@@ -67,7 +67,7 @@ def stegano(name_image, msg) :
                 #si x est pair on y met la deuxième moitié du code de la lettre
                 #dans les bits de poids faibles de r
             image2.putpixel((x,y),(r,v,b)) #on met le code RGB au pixel (x,y) dans la nouvelle image
-    image2.save("imageStega.jpg", type = 'JPG') #on sauvegarde l'image
+    image2.save("imageStega.png", type = 'PNG') #on sauvegarde l'image
     image2.show()
  #on ouvre l'image !
 def dechiffre(text_code):
@@ -101,19 +101,17 @@ def search_msg(name_image) :
     #on récupère les dimensions
     w,h = image.size
     indice = 1
-    image2 = Image.new("RGB",(w,h))
     long_secret = ""
     message_secret = ""
     for y in range(h):
         for x in range(w):
             p = image.getpixel((x,y))
             r = p[0] # composante rouge comprise entre 0 et 255
-            v = p[1] #composante verte comprise entre 0 et 255
-            b = p[2] #composante bleue comprise entre 0 et 255
             if x == 0 and y == 0 :
                 long_secret = r
+                print(long_secret)
             else :
-                if indice <= len(long_secret): 
+                if indice <= long_secret: 
                     rouge=r[:4]
                     message_secret += rouge
                     
@@ -122,5 +120,5 @@ def search_msg(name_image) :
 
 
 #tests
-stegano('saucisse.jpg','s')
-search_msg('imageStega.jpg')
+#stegano('saucisse.png','s')
+search_msg('imageStega.png')
