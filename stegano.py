@@ -70,6 +70,26 @@ def stegano(name_image, msg) :
     image2.save("imageStega.jpg", type = 'JPG') #on sauvegarde l'image
     image2.show()
  #on ouvre l'image !
+def dechiffre(text_code):
+            """convertit un code binaire en texte de type string
+            précondition:
+                type text_code = str
+            postcondition:
+                type texte = str
+            Exemple:
+                >>>dechiffre("01001000 01100101 01101100 01101100 01101111")
+                Hello
+            """
+            texte = ""
+            i = 0
+            while i != len(text_code):
+                lettre_bin = text_code[i: i+7]
+                i += 7
+                lettre_dec = int(lettre_bin,2)
+                lettre = chr(lettre_dec)
+                texte += lettre
+
+            return texte
 def search_msg(name_image) :
     """recherche le messge caché dans l'image
     précondition:
@@ -97,6 +117,7 @@ def search_msg(name_image) :
                     r=bin(r).lstrip('-0b').zfill(8)
                     print(r)
                     rouge=r[:4]
+
                     #utiliser le fonction dechiffre du XOR
 
 #tests
