@@ -83,8 +83,8 @@ def dechiffre(text_code):
             texte = ""
             i = 0
             while i != len(text_code):
-                lettre_bin = text_code[i: i+7]
-                i += 7
+                lettre_bin = text_code[i: i+8]
+                i += 8
                 lettre_dec = int(lettre_bin,2)
                 lettre = chr(lettre_dec)
                 texte += lettre
