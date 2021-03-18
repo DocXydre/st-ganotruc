@@ -123,3 +123,4 @@ def search_msg(name_image) :
 
 #tests
 stegano('saucisse.jpg','s')
+search_msg('imageStega.jpg')
