@@ -100,7 +100,7 @@ def search_msg(name_image) :
     image = Image.open(name_image)
     #on récupère les dimensions
     w,h = image.size
-    indice = 1
+    indice = 0
     long_secret = ""
     message_secret = ""
     for y in range(h):
@@ -111,7 +111,7 @@ def search_msg(name_image) :
                 long_secret = r
                 print(long_secret)
             else :
-                if indice <= long_secret + 1 :
+                if indice <= long_secret :
                     r=bin(r).lstrip('-0b').zfill(8) 
                     rouge=r[4:]
                     print(rouge)
